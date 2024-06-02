@@ -1,11 +1,13 @@
 version: '3'
 services:
-  api:
-    build: .
-    ports:
-      - "3000:8080"
-    volumes:
-      - "./:/app"
-      - "reserved:/app/node_modules"
+    api:
+        build: .
+        ports:
+            - '3000:8080'
+        env_file:
+            - .env
+        volumes:
+            - './:/app'
+            - 'reserved:/app/node_modules'
 volumes:
-  reserved:
+    reserved:
